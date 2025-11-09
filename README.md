@@ -1,541 +1,453 @@
-# Research Discovery Agents 🔬
+# Specialized Research Agents for Claude Code 🔬
 
-Specialized AI agents for scientific research discovery and literature analysis with Claude Code. These agents help you form hypotheses, review literature, and set up research infrastructure before diving into data analysis.
-
-**Transform your research workflow with AI-powered research specialists.**
+AI-powered research assistants for **Computational Biology** and **Clinical Trial** researchers using Claude Code.
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-blueviolet)](https://docs.claude.com/en/docs/claude-code)
 
-## 🎯 Why Research Agents?
+## 🎯 Why Specialized Research Agents?
 
-Most data science tools focus on modeling and analysis, but **research starts earlier**:
-- What questions should I ask?
-- What's already been discovered?
-- Where do I find relevant data and papers?
-- How do I access research resources?
+Research in computational biology and clinical trials requires domain-specific expertise:
 
-These agents fill that gap, covering the **research discovery phase** that comes before traditional data science.
+- **Computational Biology**: Know genomics databases (TCGA, GEO), bioinformatics journals, analysis tools
+- **Clinical Trials**: Understand trial design, regulatory requirements, clinical literature
+
+These agents provide **specialized knowledge** for each research domain, from hypothesis formation through data analysis.
 
 ## 🚀 Quick Start
 
 ```bash
-# Navigate to your project directory
-cd /path/to/your/research/project
+# Clone this repository to your research project
+git clone https://github.com/yourusername/claude-agentic-researchers.git
+cd claude-agentic-researchers
 
-# Clone or copy this repository
-git clone https://github.com/yourusername/research-agents.git
-cd research-agents
-
-# Run the setup script
+# Run setup script to verify agents
 chmod +x setup-claude-agents.sh
 ./setup-claude-agents.sh
 
-# Start Claude Code from your research directory
-cd /path/to/your/research/project
+# Start Claude Code from this directory
 claude
 ```
 
-That's it! The research agents are now ready to use.
+That's it! The research agents are now available via `@agent-name`.
 
-## 📦 What's Included
+## 📦 Available Agents
 
-This repository contains **4 specialized research agents** covering the scientific discovery workflow:
+### 🧬 Computational Biology (4 agents)
 
-### 🧠 Research Discovery
-- **hypothesis-generator** - Form research questions and testable hypotheses
-- **research-infrastructure-specialist** - Setup MCP tools for accessing papers and datasets
-- **literature-analyst** - Search, read, analyze, and synthesize research literature
-- **dataset-specialist** - Find, evaluate, and acquire research datasets
+For genomics, transcriptomics, proteomics, and systems biology research.
 
-## 🔬 The Research Agents
+| Agent | Color | Focus |
+|-------|-------|-------|
+| **compbio-hypothesis-generator** | 🟣 Purple | Generate research questions from omics data, form molecular hypotheses |
+| **compbio-dataset-specialist** | 🟢 Green | Expert in TCGA, GTEx, GEO, UniProt, single-cell datasets |
+| **compbio-literature-specialist** | 🔵 Blue | Search Bioinformatics, Genome Biology, Nature Methods journals |
+| **compbio-infrastructure-specialist** | 🔵 Cyan | Setup SRA Toolkit, NCBI, conda environments, handle FASTQ/BAM files |
 
-### hypothesis-generator
+### 🏥 Clinical Trial Research (4 agents)
 
-**Generate and refine research questions and hypotheses**
+For clinical trial design, patient data analysis, and medical research.
 
-This agent helps you:
-- Identify interesting research questions from data
-- Form clear, testable hypotheses
-- Refine hypotheses based on literature review
-- Suggest appropriate methodologies
-- Frame questions that address research gaps
-
-**Example scenarios**:
-- Starting a new research project
-- Have data but unsure what to investigate
-- Need to refine vague research ideas
-- Want to generate multiple hypothesis options
-
-### research-infrastructure-specialist
-
-**Setup tools and infrastructure to access research resources**
-
-This agent helps you:
-- Recommend which platforms to use (PubMed, arXiv, Semantic Scholar, etc.)
-- Setup MCP (Model Context Protocol) tools for research
-- Configure authentication and API keys
-- Access datasets from various repositories
-- Troubleshoot access and download issues
-
-**Example scenarios**:
-- Need to systematically search research papers
-- Want to setup automated literature monitoring
-- Looking for specific datasets
-- Encountering access issues to papers or data
-
-### literature-analyst
-
-**Search, read, analyze, and synthesize research literature**
-
-This agent helps you:
-- Craft effective search queries for research platforms
-- Find relevant papers using MCP tools
-- Read and summarize research papers (including PDFs)
-- Compare and contrast multiple papers
-- Identify consensus, contradictions, and research gaps
-- Map the research landscape
-
-**Example scenarios**:
-- Need to understand what's been done in your area
-- Want comprehensive literature review
-- Comparing different methodologies
-- Identifying research opportunities
-- Checking if your hypothesis has been tested
-
-### dataset-specialist
-
-**Find, evaluate, and acquire research datasets**
-
-This agent helps you:
-- Know major dataset repositories (Kaggle, UCI, Hugging Face, domain-specific)
-- Find datasets relevant to research questions
-- Evaluate dataset quality and appropriateness
-- Navigate download methods (bulk, API, streaming)
-- Validate downloaded datasets
-- Understand data licensing
-
-**Example scenarios**:
-- Need data for your research question
-- Looking for benchmark datasets
-- Evaluating dataset quality
-- Don't know where to find specialized data
-- Need to download large research datasets
+| Agent | Color | Focus |
+|-------|-------|-------|
+| **clinical-hypothesis-generator** | 🟣 Purple | Translate preclinical → clinical trials, design Phase I/II/III studies |
+| **clinical-dataset-specialist** | 🟢 Green | Expert in ClinicalTrials.gov, MIMIC, Medicare claims, patient registries |
+| **clinical-literature-specialist** | 🔵 Blue | Search NEJM, Lancet, JAMA, find pivotal trials and guidelines |
+| **clinical-infrastructure-specialist** | 🔵 Cyan | Setup ClinicalTrials.gov API, REDCap, HIPAA-compliant systems |
 
 ## 💡 Usage Examples
 
-### Single Agent
+### Computational Biology Workflow
+
+**Starting a Cancer Genomics Project:**
 
 ```bash
-# Generate research hypotheses
-@hypothesis-generator I have a PubMed dataset of 50K papers from 2019-2024, what interesting questions could I explore?
+# 1. Generate research hypotheses
+@compbio-hypothesis-generator
+I have RNA-seq data from 50 melanoma tumors (25 responders, 25 non-responders to immunotherapy). What interesting questions can I explore?
 
-# Setup research infrastructure
-@research-infrastructure-specialist Setup tools to search PubMed and download paper abstracts
+# 2. Review existing literature
+@compbio-literature-specialist
+Find recent papers on immunotherapy resistance mechanisms in melanoma
 
-# Review literature
-@literature-analyst Find papers about international collaboration in pandemic research
+# 3. Find relevant datasets
+@compbio-dataset-specialist
+Find publicly available melanoma RNA-seq datasets I can use for validation
 
-# Find datasets
-@dataset-specialist Find datasets about academic publication networks with citation data
+# 4. Setup analysis environment
+@compbio-infrastructure-specialist
+Setup conda environment for RNA-seq analysis with STAR, DESeq2, and GSEA tools
 ```
 
-### Multiple Agents
+**Example Output from compbio-hypothesis-generator:**
+
+Based on your data, here are testable hypotheses:
+
+1. **Immune Evasion Hypothesis**: Non-responders have upregulated immune checkpoints beyond PD-L1
+   - Analysis: Differential expression + immune deconvolution
+   - Validation: IHC for novel checkpoints
+
+2. **Tumor Microenvironment Hypothesis**: Responders have higher CD8+ T cell infiltration
+   - Analysis: CIBERSORT deconvolution + correlation with response
+   - Validation: Multiplex immunofluorescence
+
+3. **Predictive Signature Hypothesis**: A 20-gene classifier can predict response >85% accuracy
+   - Analysis: Feature selection + ML (elastic net, random forest)
+   - Validation: Independent cohort
+
+### Clinical Trial Workflow
+
+**Designing a Clinical Trial:**
 
 ```bash
-# Research infrastructure + literature review
-@research-infrastructure-specialist @literature-analyst Setup PubMed access and find papers on COVID research collaboration
+# 1. Formulate trial hypothesis
+@clinical-hypothesis-generator
+We showed 80% tumor shrinkage with our KRAS G12C inhibitor in mouse models. Help me design a Phase I/II trial.
 
-# Hypothesis + literature review
-@hypothesis-generator @literature-analyst I want to study collaboration patterns - help me form and validate hypotheses
+# 2. Review similar trials
+@clinical-literature-specialist
+Find completed Phase I/II trials for other KRAS G12C inhibitors (sotorasib, adagrasib)
 
-# Infrastructure + dataset acquisition
-@research-infrastructure-specialist @dataset-specialist Find and download datasets for studying research impact
+# 3. Get historical control data
+@clinical-dataset-specialist
+Find historical response rates for standard chemotherapy in KRAS G12C+ NSCLC
+
+# 4. Setup trial infrastructure
+@clinical-infrastructure-specialist
+Setup REDCap for collecting patient data and configure ClinicalTrials.gov API access
 ```
 
-### Complete Research Workflow
+**Example Output from clinical-hypothesis-generator:**
 
-```bash
-# 1. Form initial hypothesis
-@hypothesis-generator I have a dataset of 50K biomedical papers - what could I investigate about collaboration patterns?
+**Recommended Trial Design:**
 
-# 2. Setup research infrastructure
-@research-infrastructure-specialist Setup tools to access PubMed, arXiv, and Semantic Scholar
+**Phase I** (Dose Escalation):
+- Design: 3+3 dose escalation (50mg, 100mg, 200mg, 400mg daily)
+- Sample size: 12-24 patients
+- Primary endpoint: Safety, MTD
+- Duration: 12-18 months
 
-# 3. Review existing literature
-@literature-analyst What's the current state of research on international scientific collaboration?
+**Phase II** (Efficacy):
+- Design: Single-arm expansion at RP2D
+- Sample size: 90 patients (Simon two-stage)
+- Population: KRAS G12C+ metastatic NSCLC, post-platinum therapy, ECOG 0-1
+- Primary endpoint: ORR by RECIST 1.1
+- Success criterion: ORR ≥40% (vs historical 15% for docetaxel)
+- Secondary: PFS, OS, ctDNA clearance, resistance mechanisms
 
-# 4. Refine hypothesis based on findings
-@hypothesis-generator Based on the literature review, help me refine my hypothesis about COVID-era collaboration
+## 🔬 Agent Capabilities
 
-# 5. Find appropriate datasets
-@dataset-specialist Find datasets with publication metadata and collaboration data from 2019-2024
+### compbio-hypothesis-generator
 
-# 6. Download and prepare data
-@research-infrastructure-specialist Help me download the OpenAlex dataset subset for COVID research
+**Specializes in:**
+- Generating testable hypotheses from RNA-seq, WGS, proteomics, single-cell data
+- Understanding biological mechanisms and pathways
+- Designing computational analysis strategies
+- Suggesting appropriate validation experiments
 
-# → Now ready for analysis phase (data cleaning, EDA, modeling, etc.)
+**Example questions:**
+- "What genes drive drug resistance in my cancer cells?"
+- "Design a hypothesis for comparing tumor vs normal tissue"
+- "What pathway analysis should I do with my differentially expressed genes?"
+
+### compbio-dataset-specialist
+
+**Knows about:**
+- **Genomics**: TCGA, ICGC, 1000 Genomes, gnomAD, UK Biobank
+- **Expression**: GEO, GTEx, ArrayExpress, Human Protein Atlas
+- **Single-cell**: CELLxGENE, Single Cell Portal, 10x datasets
+- **Proteomics**: PRIDE, UniProt, BioGRID, STRING
+- **Functional**: DepMap, ENCODE, LINCS
+
+**Example questions:**
+- "Find scRNA-seq datasets for immune cells in tumors"
+- "Where can I get TCGA breast cancer multi-omics data?"
+- "Compare GTEx vs TCGA for normal tissue expression"
+
+### compbio-literature-specialist
+
+**Knows journals:**
+- Bioinformatics, Genome Biology, Nature Methods, BMC Bioinformatics
+- Nature Genetics, Cell Genomics, JCO Precision Oncology
+- PLOS Computational Biology, Nucleic Acids Research
+
+**Searches:**
+- PubMed with MeSH terms, bioRxiv for preprints
+- Methods papers, benchmarking studies, tool comparisons
+
+**Example questions:**
+- "Find best practices for scRNA-seq clustering"
+- "Papers about CRISPR screens in cancer"
+- "Compare tools for variant calling"
+
+### compbio-infrastructure-specialist
+
+**Sets up:**
+- Conda/Bioconda environments
+- SRA Toolkit for downloading sequencing data
+- NCBI, Ensembl, UniProt API access
+- Cloud platforms (AWS, Google Cloud) for genomics
+- Workflow managers (Nextflow, Snakemake)
+
+**Handles:**
+- FASTQ, BAM, VCF file formats
+- Large data downloads and processing
+- Reference genome setup
+- Docker containers for reproducibility
+
+**Example questions:**
+- "Download RNA-seq data from GEO accession GSE12345"
+- "Setup STAR for aligning RNA-seq reads"
+- "Create conda environment for single-cell analysis"
+
+### clinical-hypothesis-generator
+
+**Specializes in:**
+- Translating preclinical findings to clinical trials
+- Designing Phase I/II/III trials
+- Selecting appropriate patient populations and endpoints
+- Understanding regulatory requirements (FDA, EMA)
+
+**Knows:**
+- Trial phases, designs (RCT, single-arm, basket, umbrella)
+- Endpoints (OS, PFS, ORR, DFS, QoL)
+- Sample size calculations
+- Biomarker strategies
+
+**Example questions:**
+- "Design a Phase II trial for novel immunotherapy combination"
+- "What endpoints should I use for adjuvant breast cancer trial?"
+- "How do I design a biomarker-driven basket trial?"
+
+### clinical-dataset-specialist
+
+**Knows about:**
+- **Trial Data**: ClinicalTrials.gov, AACT database, Vivli, YODA
+- **EHR Data**: MIMIC, eICU, UK Biobank, All of Us
+- **Claims**: Medicare, Optum, MarketScan
+- **Registries**: SEER (cancer), OPTN (transplant), rare disease registries
+- **Safety**: FAERS, Sentinel
+
+**Example questions:**
+- "Find completed melanoma immunotherapy trials with results"
+- "Access MIMIC-IV for ICU outcomes research"
+- "Get historical control data for metastatic NSCLC survival"
+
+### clinical-literature-specialist
+
+**Knows journals:**
+- NEJM, Lancet, JAMA, BMJ (general medicine)
+- JCO, Lancet Oncology, JAMA Oncology (oncology)
+- Circulation, JACC (cardiology)
+- Cochrane Library (systematic reviews)
+
+**Searches:**
+- PubMed Clinical Queries
+- ClinicalTrials.gov for trial protocols
+- FDA approval documents, EMA EPARs
+- NCCN, ASCO, ESMO guidelines
+
+**Critically appraises:**
+- Trial design, endpoints, statistical analysis
+- Bias, conflicts of interest
+- Clinical significance vs statistical significance
+
+**Example questions:**
+- "Find pivotal trials that led to pembrolizumab approval"
+- "What's the standard first-line treatment for HER2+ breast cancer?"
+- "Review systematic reviews of CAR-T therapy in lymphoma"
+
+### clinical-infrastructure-specialist
+
+**Sets up:**
+- ClinicalTrials.gov API, AACT database queries
+- PubMed E-utilities for literature search
+- REDCap for clinical trial data collection
+- MIMIC/eICU access via PhysioNet
+- UK Biobank, Medicare data applications
+
+**Ensures compliance:**
+- HIPAA de-identification
+- IRB/ethics requirements
+- Data Use Agreements (DUAs)
+- 21 CFR Part 11 (electronic records)
+
+**Example questions:**
+- "Setup REDCap for Phase II trial with adverse event tracking"
+- "Query ClinicalTrials.gov API for all recruiting lung cancer trials"
+- "Access MIMIC-IV data on Google BigQuery"
+
+## 📁 Repository Structure
+
 ```
-
-## 📁 Directory Structure
-
-After running the setup script, you'll have:
-
-```
-.claude/
-└── agents/
-    ├── hypothesis-generator.md
-    ├── research-infrastructure-specialist.md
-    ├── literature-analyst.md
-    └── dataset-specialist.md
-```
-
-## 🎨 Agent Visual Guide
-
-Each agent has a unique color in the Claude Code UI:
-
-| Agent | Color | Primary Focus |
-|-------|-------|---------------|
-| 🟣 hypothesis-generator | Purple | Research question formation |
-| 🔵 research-infrastructure-specialist | Cyan | Tool setup & data access |
-| 🔵 literature-analyst | Blue | Literature review & synthesis |
-| 🟢 dataset-specialist | Green | Dataset discovery & acquisition |
-
-## 🎓 Agent Capabilities
-
-### hypothesis-generator
-- Generate interesting research questions from data
-- Form testable hypotheses with clear predictions
-- Refine hypotheses based on literature findings
-- Identify assumptions and research design considerations
-- Suggest appropriate methodologies
-- Frame questions that address identified gaps
-
-### research-infrastructure-specialist
-- Know available MCP tools for research (PubMed, arXiv, Semantic Scholar, etc.)
-- Setup and configure MCP servers
-- Configure API keys and authentication
-- Navigate institutional access
-- Understand research platform APIs
-- Handle bulk downloads and rate limiting
-- Troubleshoot access issues
-
-### literature-analyst
-- Craft effective search queries (Boolean operators, MeSH terms, field tags)
-- Search across multiple research platforms
-- Read and understand scientific papers (including PDFs)
-- Extract key information (methods, findings, limitations)
-- Summarize individual papers clearly
-- Compare and contrast multiple papers
-- Synthesize findings across literature
-- Identify consensus and contradictions
-- Map research landscape and trends
-- Identify research gaps and opportunities
-
-### dataset-specialist
-- Know major dataset repositories (general and domain-specific)
-- Search for relevant datasets
-- Evaluate dataset quality, coverage, and recency
-- Understand data provenance and licensing
-- Compare alternative datasets
-- Navigate different download methods
-- Validate downloaded data
-- Handle large dataset downloads efficiently
-
-## 🔄 Research Workflow
-
-### Starting a New Research Project
-
-**Step 1: Explore & Hypothesize**
-```bash
-@hypothesis-generator What interesting questions can I explore in this dataset?
-```
-
-**Step 2: Setup Infrastructure**
-```bash
-@research-infrastructure-specialist Setup tools to search PubMed and arXiv
-```
-
-**Step 3: Literature Review**
-```bash
-@literature-analyst Find and synthesize papers on [your topic]
-```
-
-**Step 4: Refine Hypothesis**
-```bash
-@hypothesis-generator Based on the literature, refine my research hypothesis
-```
-
-**Step 5: Acquire Data**
-```bash
-@dataset-specialist Find datasets for testing this hypothesis
-@research-infrastructure-specialist Help download the recommended dataset
-```
-
-**Step 6: Analysis** (Future: use analysis-phase agents)
-- Data cleaning and preprocessing
-- Exploratory data analysis
-- Statistical testing
-- Modeling and visualization
-
-### Investigating a Specific Question
-
-**Example: "How did COVID-19 affect research collaboration?"**
-
-```bash
-# Step 1: Refine the question
-@hypothesis-generator Help me form a testable hypothesis about COVID's impact on research collaboration
-
-# Step 2: Setup tools
-@research-infrastructure-specialist Setup PubMed and Semantic Scholar access for COVID research analysis
-
-# Step 3: Literature review
-@literature-analyst Find papers that studied collaboration patterns during COVID-19
-
-# Step 4: Synthesize findings
-@literature-analyst Compare methodologies and findings across the top 10 papers
-
-# Step 5: Identify gap
-@hypothesis-generator Based on literature gaps, refine my specific research contribution
-
-# Step 6: Get data
-@dataset-specialist Find datasets with publication and collaboration data from 2019-2024
+claude-agentic-researchers/
+├── README.md
+├── setup-claude-agents.sh
+├── .claude/
+│   └── agents/
+│       ├── compbio-hypothesis-generator.md
+│       ├── compbio-dataset-specialist.md
+│       ├── compbio-literature-specialist.md
+│       ├── compbio-infrastructure-specialist.md
+│       ├── clinical-hypothesis-generator.md
+│       ├── clinical-dataset-specialist.md
+│       ├── clinical-literature-specialist.md
+│       └── clinical-infrastructure-specialist.md
+├── research-phase-design.md (design docs)
+└── future-analysis-phase.md (future plans)
 ```
 
 ## 🛠️ Requirements
 
 - [Claude Code](https://docs.claude.com/en/docs/claude-code) installed
-- Bash (for the setup script) - works on:
-  - macOS
-  - Linux
-  - Windows (Git Bash, WSL, or Cygwin)
+- Bash (for setup script) - works on macOS, Linux, Windows (Git Bash/WSL)
+
+## 🎓 Complete Research Workflows
+
+### Computational Biology: Cancer Drug Resistance Study
+
+```bash
+# 1. Hypothesis Generation
+@compbio-hypothesis-generator
+I have RNA-seq from 200 cancer cell lines with drug sensitivity data. Generate hypotheses about resistance mechanisms.
+
+# 2. Literature Review
+@compbio-literature-specialist
+Find papers on EGFR inhibitor resistance mechanisms in lung cancer
+
+# 3. Dataset Acquisition
+@compbio-dataset-specialist
+Find CCLE or DepMap data with both gene expression and drug response
+
+# 4. Infrastructure Setup
+@compbio-infrastructure-specialist
+Setup Python environment with scanpy, DESeq2, and GSEA tools
+
+# 5. Analysis (your own work or use future analysis agents)
+# - Differential expression analysis
+# - Pathway enrichment
+# - Machine learning for prediction
+# - Validation experiments
+```
+
+### Clinical Trial: Immunotherapy Combination Trial
+
+```bash
+# 1. Trial Design
+@clinical-hypothesis-generator
+Design a Phase Ib/II trial combining anti-PD-1 + novel TGF-beta inhibitor in melanoma patients who progressed on anti-PD-1 monotherapy
+
+# 2. Literature & Regulatory Review
+@clinical-literature-specialist
+Find completed combination immunotherapy trials and their endpoints. What did FDA require for approval?
+
+# 3. Historical Controls
+@clinical-dataset-specialist
+Find response rates for salvage therapy in anti-PD-1 refractory melanoma
+
+# 4. Trial Setup
+@clinical-infrastructure-specialist
+Setup REDCap with:
+- Eligibility screening forms
+- Dose escalation tracking (3+3 design)
+- Adverse event reporting (CTCAE grading)
+- Response assessment (RECIST 1.1)
+- Patient-reported outcomes (PRO-CTCAE)
+
+Register trial on ClinicalTrials.gov
+
+# 5. Conduct trial & publish results
+```
+
+## 🆚 Why Domain-Specific Agents?
+
+**Generic Research Agents**:
+- Broad knowledge but shallow expertise
+- Don't know specialized databases (TCGA, ClinicalTrials.gov)
+- Miss domain-specific nuances
+
+**Specialized Agents (this repo)**:
+- **CompBio agents**: Know difference between RNA-seq vs scRNA-seq, understand GTEx vs TCGA use cases, speak the language of genomics
+- **Clinical agents**: Understand Phase I vs III trial designs, know RECIST criteria, familiar with FDA requirements
+
+**Result**: More accurate recommendations, better research design, time saved.
 
 ## 📖 Best Practices
 
-### When to Use Each Agent
+### When to Use Which Agent
 
-**Starting Research**:
-1. `@hypothesis-generator` - Form initial research questions
-2. `@research-infrastructure-specialist` - Setup access to research resources
-3. `@literature-analyst` - Understand existing work
-4. `@hypothesis-generator` - Refine based on literature
-5. `@dataset-specialist` - Acquire relevant data
+**Computational Biology**:
+1. **Starting new analysis** → compbio-hypothesis-generator
+2. **Finding data** → compbio-dataset-specialist
+3. **Understanding methods** → compbio-literature-specialist
+4. **Setting up tools** → compbio-infrastructure-specialist
 
-**Literature Review**:
-1. `@research-infrastructure-specialist` - Setup search tools
-2. `@literature-analyst` - Search and read papers
-3. `@literature-analyst` - Synthesize findings
-4. `@literature-analyst` - Identify gaps
+**Clinical Trial Research**:
+1. **Designing trial** → clinical-hypothesis-generator
+2. **Finding similar trials** → clinical-literature-specialist
+3. **Getting trial/patient data** → clinical-dataset-specialist
+4. **Setting up infrastructure** → clinical-infrastructure-specialist
 
-**Data Acquisition**:
-1. `@dataset-specialist` - Find relevant datasets
-2. `@dataset-specialist` - Evaluate quality and appropriateness
-3. `@research-infrastructure-specialist` - Help with download and access
+### Combine Agents for Complex Tasks
 
-### Tips for Best Results
+```bash
+# Multi-agent collaboration
+@compbio-dataset-specialist @compbio-literature-specialist
+Find melanoma scRNA-seq datasets AND papers analyzing immune cell populations in these datasets
 
-**Be Specific**:
-- "Find papers about neural networks" → "Find papers about transformer architectures for biomedical NLP published 2020-2024"
-- "I need data" → "I need a dataset of research papers with citation counts and author affiliations"
-
-**Provide Context**:
-- Share your research domain
-- Mention what you've already tried
-- Explain your constraints (time, access, computational resources)
-
-**Iterate**:
-- Start broad, then narrow down
-- Refine hypotheses as you learn more
-- Ask follow-up questions
-
-**Combine Agents**:
-- Use multiple agents for comprehensive workflows
-- Infrastructure agent enables the others
-- Hypothesis agent should bookend your research (start and refine)
-
-## 🔮 Future: Analysis Phase Agents
-
-The current repository focuses on **research discovery**. Future agents will cover the **analysis phase**:
-
-- **data-cleaner** - Data quality and preprocessing
-- **eda-specialist** - Exploratory data analysis
-- **statistician** - Statistical hypothesis testing
-- **feature-engineer** - Feature engineering for modeling
-- **ml-engineer** - Machine learning and deep learning
-- **nlp-specialist** - Natural language processing (great for papers!)
-- **science-communicator** - Visualization and reproducible notebooks
-
-See [future-analysis-phase.md](future-analysis-phase.md) for detailed plans.
-
-## 🆚 How This Differs from Web Dev Agents
-
-**Web Development Agents (e.g., ciign)**:
-- Focus: Building software (frontend, backend, databases)
-- Tools: React, Node.js, PostgreSQL, Docker
-- Workflow: Design → Implement → Test → Deploy
-
-**Research Discovery Agents (this repo)**:
-- Focus: Scientific discovery (hypotheses, literature, data)
-- Tools: PubMed, arXiv, datasets, research papers
-- Workflow: Question → Literature → Hypothesis → Data → Analysis
-
-**Complementary, not competing**: Use web dev agents for building research tools, use research agents for doing research.
+@clinical-hypothesis-generator @clinical-literature-specialist
+Design Phase II trial for drug X AND review similar completed trials to inform the design
+```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can help:
+Contributions are welcome! Ideas for new agents:
 
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/new-research-agent`)
-3. **Make your changes**
-4. **Test thoroughly**
-5. **Commit your changes** (`git commit -m 'Add new research agent'`)
-6. **Push to the branch** (`git push origin feature/new-research-agent`)
-7. **Open a Pull Request**
+**More Domain-Specific Agents**:
+- **neuroscience-researcher**: Neuroimaging, electrophysiology, behavioral data
+- **structural-biologist**: PDB, AlphaFold, cryo-EM databases
+- **pharmacologist**: DrugBank, ChEMBL, ADME/Tox prediction
+- **epidemiologist**: NHANES, population health data, statistical analysis
 
-### Ideas for New Research Agents
+**Analysis-Phase Agents** (for data you've already collected):
+- **data-cleaner**, **eda-specialist**, **statistician**, **ml-engineer**
 
-**Specialized Research**:
-- **citation-analyst** - Citation network analysis and impact tracking
-- **research-validator** - Evaluate research quality and reproducibility
-- **preprint-monitor** - Track and analyze preprints and early research
-- **grant-writer** - Help write research proposals and grants
-
-**Domain-Specific**:
-- **bioinformatics-specialist** - Genomics, proteomics, clinical data
-- **clinical-trial-analyst** - Clinical trial design and analysis
-- **meta-analyst** - Systematic reviews and meta-analysis
-- **patent-analyst** - Patent search and analysis
-
-**Analysis Phase** (see future-analysis-phase.md):
-- **data-cleaner**, **eda-specialist**, **statistician**, **ml-engineer**, etc.
+See [CONTRIBUTING.md](CONTRIBUTING.md) (if you create one) for guidelines.
 
 ## 📄 License
 
 This project is released into the public domain under The Unlicense. You can do whatever you want with it - no attribution required!
 
-See the [LICENSE](LICENSE) file for details or visit [unlicense.org](https://unlicense.org).
+See the [LICENSE](LICENSE) file or visit [unlicense.org](https://unlicense.org).
 
 ## 🙏 Acknowledgments
 
 - Built for use with [Claude Code](https://www.anthropic.com/claude/code)
-- Inspired by [ciign/agentic-engineering](https://github.com/ciign/agentic-engineering) for web development
-- Designed to support the scientific research community
+- Inspired by [ciign/agentic-engineering](https://github.com/ciign/agentic-engineering)
+- Designed for the research community: computational biologists and clinical trial researchers
 
-## 📞 Support
+## 📞 Support & Community
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/research-agents/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/research-agents/discussions)
-- **Documentation**: [Claude Code Docs](https://docs.claude.com/en/docs/claude-code)
+- **Issues**: [GitHub Issues](https://github.com/yourusername/claude-agentic-researchers/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/claude-agentic-researchers/discussions)
+- **Claude Code Docs**: [docs.claude.com/claude-code](https://docs.claude.com/en/docs/claude-code)
 
 ## 🌟 Use Cases
 
-### Academic Research
-- PhD students exploring dissertation topics
-- Postdocs planning new research directions
-- Faculty designing grant proposals
-- Research groups coordinating literature reviews
+### Computational Biology
+- PhD students analyzing omics data
+- Postdocs designing experiments
+- Bioinformatics core facilities
+- Pharma computational biologists
 
-### Industry Research
-- R&D teams investigating new technologies
-- Data scientists exploring research datasets
-- Product teams validating hypotheses with academic literature
-- Innovation teams identifying research opportunities
-
-### Meta-Research
-- Studying research trends and patterns
-- Analyzing collaboration networks
-- Understanding citation dynamics
-- Mapping research landscapes
-
-### Learning & Education
-- Students learning research methodology
-- Researchers entering new fields
-- Teaching research skills
-- Understanding scientific domains
-
-## 💡 Example: Complete Research Project
-
-**Research Question**: "How has international collaboration in AI research evolved?"
-
-```bash
-# Phase 1: Hypothesis Formation
-@hypothesis-generator
-"I'm interested in AI research collaboration patterns. What specific, testable hypotheses could I explore?"
-
-→ Suggests: "International co-authorship in AI research increased 200% from 2015-2024,
-with US-China collaboration being the largest bilateral partnership until 2022"
-
-# Phase 2: Infrastructure Setup
-@research-infrastructure-specialist
-"Setup tools to access arXiv (for AI papers) and Semantic Scholar (for citation data)"
-
-→ Installs and configures MCP servers, provides API keys setup
-
-# Phase 3: Literature Review
-@literature-analyst
-"Find papers that studied collaboration patterns in AI/ML research"
-
-→ Finds 25 relevant papers, reads top 10, provides synthesis:
-- Most studies end in 2020
-- Focus on publication counts, not citation impact
-- Gap: Recent geopolitical impacts not well studied
-
-# Phase 4: Hypothesis Refinement
-@hypothesis-generator
-"Based on the literature gaps, refine my hypothesis to make a novel contribution"
-
-→ Refined: "US-China AI collaboration peaked in 2019-2020 and declined 40% by 2023
-due to geopolitical tensions, while US-Europe and China-Europe collaborations increased
-to compensate, maintaining overall international collaboration rates"
-
-# Phase 5: Data Acquisition
-@dataset-specialist
-"Find datasets with AI research papers, author affiliations, and citations from 2015-2024"
-
-→ Recommends: Semantic Scholar AI dataset (2M papers) or arXiv CS.AI bulk download
-
-@research-infrastructure-specialist
-"Help me download the Semantic Scholar AI dataset"
-
-→ Sets up download script, filters for AI papers, validates data
-
-# Phase 6: Analysis
-→ Now use analysis-phase agents or traditional data science workflow
-- Clean author affiliations (extract countries)
-- EDA: Visualize collaboration trends over time
-- Statistical testing: Test significance of decline
-- Network analysis: Map collaboration networks
-- Visualization: Create publication-quality figures
-
-# Result: Novel research contribution with solid literature foundation
-```
-
-## 🎯 Why Use These Agents?
-
-**Save Time**:
-- Automate literature search and synthesis
-- Quickly setup research infrastructure
-- Find datasets faster
-
-**Improve Quality**:
-- Form better hypotheses based on literature
-- Identify research gaps systematically
-- Access more comprehensive data sources
-
-**Learn Research Skills**:
-- See how experts approach research
-- Learn best practices for literature review
-- Understand research methodology
-
-**Stay Organized**:
-- Systematic approach to research discovery
-- Clear workflow from question to data
-- Reproducible research setup
+### Clinical Trial Research
+- Clinical trial coordinators
+- Medical oncologists designing trials
+- Regulatory affairs specialists
+- Clinical research organizations (CROs)
 
 ---
 
-**Made with ❤️ for the research community**
+**Accelerate your research with specialized AI agents! 🚀**
 
-*Accelerate your research discovery with Claude Code! 🚀*
-# claude-agentic-researchers
+*Made with ❤️ for computational biologists and clinical researchers*
